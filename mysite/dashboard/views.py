@@ -1,14 +1,14 @@
 from django.shortcuts import render
 from django.utils import timezone
 
-from .models import RewardFeed, JournalEntryList
+from .models import RewardFeed, JournalEntryList, Badge
 
 
 def index(request):
-    latest_reward_list = RewardFeed.objects.order_by('-pub_date')[:5]
+    latest_badge_list = Badge.objects.order_by('-pub_date')[:5]
     latest_journal_list = JournalEntryList.objects.order_by('-pub_date')[:5]
     context = {
-    	'latest_reward_list': latest_reward_list,
+    	'latest_badge_list': latest_badge_list,
     	'latest_journal_list': latest_journal_list
     	}
 
@@ -16,17 +16,17 @@ def index(request):
 
 
 def reward_detail(request, reward_id):
-	latest_reward_list = RewardFeed.objects.order_by('-pub_date')[:5]
-	reward = RewardFeed(reward_feed_text="congrats!", pub_date=timezone.now())
-	for r in latest_reward_list:
-		if r.id == reward_id:
-			reward = r
+	latest_badge_list = Badge.objects.order_by('-pub_date')[:5]
+	badge = Badge(name="congrats!")
+	for b in latest_badge_list:
+		if b.id == reward_id:
+			badge = b
 	
 	context = {
-    	'reward': reward
+    	'badge': badge
     	}
 
-	return render(request, 'dashboard/reward.html', context)
+	return render(request, 'dashboard/badge.html', context)
 
 def journal_detail(request, journal_id):
 	latest_journal_list = JournalEntryList.objects.order_by('-pub_date')[:5]
@@ -36,7 +36,7 @@ def journal_detail(request, journal_id):
 			journal = j
     
 	context = {
-    	'journal': journal
+    	'journal_entry': journal
     	}
 
 	return render(request, 'dashboard/journal.html', context)
