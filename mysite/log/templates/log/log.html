@@ -1,0 +1,171 @@
+{% extends "layout.html" %}
+{% load static from staticfiles %}
+
+{% block styles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/log.css' %}">
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static 'js/log.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <section>
+            <div class="wizard">
+                <div class="wizard-inner">
+                    <div class="connecting-line"></div>
+                    <ul class="nav nav-tabs" role="tablist">
+
+                        <li role="presentation" class="active">
+                            <a href="#step1" data-toggle="tab" aria-controls="step1" role="tab" title="Step 1">
+                                <span class="round-tab">
+                                    <i class="glyphicon glyphicon-folder-open"></i>
+                                </span>
+                            </a>
+                        </li>
+
+                        <li role="presentation" class="disabled">
+                            <a href="#step2" data-toggle="tab" aria-controls="step2" role="tab" title="Step 2">
+                                <span class="round-tab">
+                                    <i class="glyphicon glyphicon-pencil"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li role="presentation" class="disabled">
+                            <a href="#step3" data-toggle="tab" aria-controls="step3" role="tab" title="Step 3">
+                                <span class="round-tab">
+                                    <i class="glyphicon glyphicon-picture"></i>
+                                </span>
+                            </a>
+                        </li>
+
+                        <li role="presentation" class="disabled">
+                            <a href="#complete" data-toggle="tab" aria-controls="complete" role="tab" title="Complete">
+                                <span class="round-tab">
+                                    <i class="glyphicon glyphicon-ok"></i>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <form role="form">
+                    <div class="tab-content">
+                        <div class="tab-pane active" role="tabpanel" id="step1">
+                            <h3>Step 1</h3>
+                            <p>How are you feeling?</p>
+                            <p>Please select a feeling from <b>ONE</b> of the sections listed below.
+                            <br><br>
+
+        <!-- Drop-Down Menu -->
+        <form class="form-horizontal">
+    <fieldset>
+
+    <!-- Form Name -->
+    <legend>Feelings When Needs Are Met</legend>
+    <br>
+    <!-- Select Basic -->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="PositiveFeelings">Select the emotion that best describes how you're feeling right now.</label>
+      <div class="col-md-4">
+        <select name="Feelings" class="form-control" id="selectbasic">
+          <option value="None">Select One</option>
+          <option value="Affectionate">Affectionate</option>
+          <option value="Engaged">Engaged</option>
+          <option value="Hopeful">Hopeful</option>
+          <option value="Confident">Confident</option>
+          <option value="Excited">Excited</option>
+          <option value="Grateful">Grateful</option>
+          <option value="Inspired">Inspired</option>
+          <option value="Joyful">Joyful</option>
+          <option value="Exhilarated">Exhilarated</option>
+          <option value="Peaceful">Peaceful</option>
+          <option value="Refreshed">Refreshed</option>
+        </select>
+      </div>
+    </div>
+    <br /><br />
+    <!-- Form Name -->
+    <legend>Feelings When Needs Are <b>NOT</b> Met</legend>
+
+    <!-- Select Basic -->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="NegativeFeelings">Select the emotion that best describes how you're feeling right now.</label>
+      <div class="col-md-4">
+        <select name="NegativeFeelings" class="form-control" id="selectbasic">
+           <option value="None">Select One</option>
+          <option value="Afraid">Afraid</option>
+          <option value="Annoyed">Annoyed</option>
+          <option value="Angry">Angry</option>
+          <option value="Aversion">Aversion</option>
+          <option value="Confused">Confused</option>
+          <option value="Disconnected">Disconnected</option>
+          <option value="Disquiet">Disquiet</option>
+          <option value="Embarassed">Embarassed</option>
+          <option value="Fatigue">Fatigue</option>
+          <option value="Pain">Pain</option>
+          <option value="Sad">Sad</option>
+          <option value="Tense">Tense</option>
+          <option value="Vulnerable">Vulnerable</option>
+          <option value="Yearning">Yearning</option>
+        </select>
+      </div>
+    </div>
+
+    </fieldset>
+    </form>
+
+
+                            <ul class="list-inline pull-right">
+                                <li><button type="button" class="btn btn-primary next-step">Save and continue</button></li>
+                            </ul>
+                        </div>
+                        <div class="tab-pane" role="tabpanel" id="step2">
+                            <h3>Step 2</h3>
+                            <p>What needs would you like to be met in order to feel better?</p>
+        <!-- Drop-Down Menu -->
+        <select name="needs">
+            <option value="Subsistence">Subsistence</option>
+            <option value="Protection">Protection</option>
+            <option value="Love">Love</option>
+            <option value="Partnership">Partnership</option>
+            <option value="Understanding">Understanding</option>
+            <option value="Leisure">Leisure</option>
+            <option value="Identity">Identity</option>
+            <option value="Creation">Creation</option>
+            <option value="Freedom">Freedom</option>
+            <option value="Meaning/Purpose">Meaning/Purpose</option>
+        </select>
+
+                            <ul class="list-inline pull-right">
+                                <li><button type="button" class="btn btn-default prev-step">Previous</button></li>
+                                <li><button type="button" class="btn btn-primary next-step">Save and continue</button></li>
+                            </ul>
+                        </div>
+                        <div class="tab-pane" role="tabpanel" id="step3">
+                            <h3>Step 3</h3>
+                            <p>Now take a moment to relax.</p>
+                            Focus on your breathing for 60 seconds!
+                            <ul class="list-inline pull-right">
+                                <li><button type="button" class="btn btn-default prev-step">Previous</button></li>
+                                <li><button type="button" class="btn btn-default next-step">Skip</button></li>
+                                <li><button type="button" class="btn btn-primary btn-info-full next-step">Save and continue</button></li>
+                            </ul>
+                        </div>
+                        <div class="tab-pane" role="tabpanel" id="complete">
+                            <h3>Complete</h3>
+                            <p>You have successfully completed all steps.</p>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </form>
+            </div>
+        </section>
+       </div>
+    </div>
+
+
+
+{% endblock %}
