@@ -32,13 +32,9 @@ class JournalEntry(models.Model):
     journal_entry_text = models.CharField(max_length=200)
     pub_date = models.DateTimeField('date published')
 
-    
-class Question(models.Model):
-    question_text = models.CharField(max_length=200)
-    pub_date = models.DateTimeField('date published')
-
-
-class Choice(models.Model):
-    question = models.ForeignKey(Question, on_delete=models.CASCADE)
-    choice_text = models.CharField(max_length=200)
-    votes = models.IntegerField(default=0)
+class Badge(models.Model):
+	id = models.AutoField(primary_key=True)
+	user = models.ForeignKey(User)
+	name = models.CharField(max_length=255,)
+	image = models.CharField(max_length=255, blank=True, null=True)
+	create_dt = models.DateTimeField(auto_now_add=True)
