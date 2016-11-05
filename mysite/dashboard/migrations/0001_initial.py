@@ -90,24 +90,10 @@ class Migration(migrations.Migration):
             name='journalentrylist',
             field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='dashboard.JournalEntryList'),
         ),
-        migrations.AddField(
-            model_name='choice',
-            name='question',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='dashboard.Question'),
-        ),
+
         migrations.AddField(
             model_name='activity',
             name='activityfeed',
             field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='dashboard.ActivityFeed'),
-        ),
-        migrations.AddField(
-            name='Badge',
-            fields=[
-                ('id', models.AutoField(primary_key=True, serialize=False)),
-                ('name', models.CharField(max_length=255)),
-                ('image', models.CharField(blank=True, max_length=255, null=True)),
-                ('create_dt', models.DateTimeField(auto_now_add=True)),
-                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
-            ],
         ),
     ]

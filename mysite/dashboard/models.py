@@ -33,7 +33,7 @@ class JournalEntry(models.Model):
     pub_date = models.DateTimeField('date published')
 
 class Badge(models.Model):
-	id = models.AutoField(primary_key=True)
+
 	user = models.ForeignKey(User)
 	name = models.CharField(max_length=255,)
 	image = models.CharField(max_length=255, blank=True, null=True)
