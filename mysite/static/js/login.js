@@ -10,20 +10,11 @@
 	  'btn-error': '<i class="fa fa-remove"></i>',
 	  'msg-success': 'All Good! Redirecting...',
 	  'msg-error': 'Wrong login credentials!',
-	  'useAJAX': true,
+	  'useAJAX': false,
   };
 
   $('#register').hide();
-
-	$('body').on('click', '#changeToRegister', function(e) {
-		$('#login').hide();
-		$('#register').show();
-	});
-
-	$('body').on('click', '#changeToLogin', function(e) {
-		$('#register').hide();
-		$('#login').show();
-	});
+	
 
 	// Login Form
 	//----------------------------------------------
@@ -39,17 +30,9 @@
 	// Form Submission
   $("#login-form").submit(function() {
   	remove_loading($(this));
-
-		if(options['useAJAX'] == true)
-		{
-			// Dummy AJAX request (Replace this with your AJAX code)
-		  // If you don't want to use AJAX, remove this
-  	  dummy_submit_form($(this));
-
-		  // Cancel the normal submission.
-		  // If you don't want to use AJAX, remove this
-  	  return false;
-		}
+    event.preventDefault();
+    console.log("form submitted!")  // sanity check
+    // create_post();
   });
 
 	// Register Form

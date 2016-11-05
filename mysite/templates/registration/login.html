@@ -16,9 +16,22 @@
     <div id="login">
         <div class="text-center" style="padding:50px 0">
             <div class="logo">login</div>
+            {% if form.errors %}
+                <p>Your username and password didn't match. Please try again.</p>
+            {% endif %}
+
+            {% if next %}
+                {% if user.is_authenticated %}
+                <p>Your account doesn't have access to this page. To proceed,
+                please login with an account that has access.</p>
+                {% else %}
+                <p>Please login to see this page.</p>
+                {% endif %}
+            {% endif %}
             <!-- Main Form -->
             <div class="login-form-1">
                 <form id="login-form" class="text-left" method="post" action="{% url 'login' %}">
+                    {% csrf_token %}
                     <div class="login-form-main-message"></div>
                     <div class="main-login-form">
                         <div class="login-group">
@@ -38,7 +51,7 @@
                         <button type="submit" class="login-button"><i class="fa fa-chevron-right"></i></button>
                     </div>
                     <div class="etc-login-form">
-                        <p>new user? <a href="#" id="changeToRegister">create new account</a></p>
+                        <p>new user? <a href="{% url 'register' %}">create new account</a></p>
                         <p><a href="{% url 'password_reset' %}">Lost password?</a></p>
                     </div>
                 </form>
