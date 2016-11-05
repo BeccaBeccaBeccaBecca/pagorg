@@ -1,3 +1,4 @@
+
 (function($) {
     "use strict";
 
@@ -11,6 +12,18 @@
 	  'msg-error': 'Wrong login credentials!',
 	  'useAJAX': true,
   };
+
+  $('#register').hide();
+
+	$('body').on('click', '#changeToRegister', function(e) {
+		$('#login').hide();
+		$('#register').show();
+	});
+
+	$('body').on('click', '#changeToLogin', function(e) {
+		$('#register').hide();
+		$('#login').show();
+	});
 
 	// Login Form
 	//----------------------------------------------
