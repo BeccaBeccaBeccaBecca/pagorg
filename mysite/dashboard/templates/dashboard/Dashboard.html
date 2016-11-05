@@ -1,0 +1,80 @@
+<!-- All the files that are required -->
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<link rel="stylesheet" type="text/css" href="templates/dashboard/Dashboard.css">
+
+<nav class="navbar navbar-default navbar-static-top">
+	<div class="container-fluid">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			
+		</div>
+
+		
+			</div><!-- /.navbar-collapse -->
+		</div><!-- /.container-fluid -->
+	</nav>
+	<div class="container-fluid main-container">
+		<div class="col-md-2 sidebar">
+			<ul class="nav nav-pills nav-stacked">
+				<li class="active"><a href="#">Home</a></li>
+				<li><a href="#">Record a Feeling</a></li>
+				<li><a href="#">Select an Activity</a></li>
+				
+			</ul>
+		</div>
+		<div class="col-md-10 content">
+            <div class="panel panel-default">
+                <div class="panel-heading"> PIE Home</div>
+                <div class="panel-body">
+                	{% load static %}
+                    <p><span class="panel-heading"><img src="static/dashboard/PieTin.png" alt="Welcome to PIE" width="106" height="95" align="right"></span>Increase your emotional well-being with PIE. Record your feelings throughout the day and receive suggestions for increasing your ability to identify what you need to feel better.</p>
+                    <p>&nbsp;</p>
+                   
+           
+                <p> <strong>Total Points</strong></p>
+                 <p> {{ points }}</p>
+                 {% if latest_badge_list %}
+				    <p>Badges:</p>
+
+				    <ul>
+				    {% for reward in latest_badge_list %}
+				        <li>{{ reward.name }}</li>
+                    <p>&nbsp;</p>
+				    {% endfor %}
+				    </ul>
+				{% else %}
+				    <p>Almost to your first badge! First badge won at 20 points.</p>
+				{% endif %}
+                 <p>&nbsp;</p>
+                  <p><strong>Journal Entries</strong></p>
+                  {% if latest_journal_list  %}
+				    <ul>
+				    {% for journal in latest_journal_list %}
+				        <li><strong>{{ journal.pub_date }}</strong></li>
+				    	<p>{{ journal.journal_entry_list_text }}</p>
+                 		<p>&nbsp;</p>
+				    {% endfor %}
+				    </ul>
+				{% else %}
+				    <p>No Journal entries :(</p>
+               {% endif %}
+        
+        
+		<footer class="pull-left footer">
+			<p class="col-md-12">
+		  <hr class="divider">
+				Copyright Pa Gorg 2015 
+			</p>
+		</footer>
+	</div>
