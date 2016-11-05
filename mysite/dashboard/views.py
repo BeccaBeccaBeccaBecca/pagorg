@@ -16,7 +16,7 @@ def index(request):
     	'latest_journal_list': latest_journal_list
     	}
 
-	return render(request, 'dashboard/index.html', context)
+	return render(request, 'dashboard/Dashboard.html', context)
 
 
 def reward_detail(request, reward_id):
