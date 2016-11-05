@@ -12,7 +12,7 @@
     <p>Here are the journal entries:</p>
     <ul>
     {% for journal in latest_journal_list %}
-        <li><a href="/dashboard/journal/{{ journal.id }}/">{{ journal.journal_entry_list_text }}</a></li>
+        <li><a href="/dashboard/journal/{{ journal.id }}/">{{ journal.pub_date }}</a></li>
     {% endfor %}
     </ul>
 {% else %}
