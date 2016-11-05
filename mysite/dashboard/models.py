@@ -35,7 +35,7 @@ class JournalEntry(models.Model):
 class Badge(models.Model):
 
     user = models.ForeignKey(User)
-    points = models.IntegerField(max_length=100)
+    points = models.IntegerField()
     name = models.CharField(max_length=255,)
     image = models.CharField(max_length=255, blank=True, null=True)
     create_dt = models.DateTimeField(auto_now_add=True)
