@@ -16,9 +16,14 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 
+from django.contrib.auth import views as auth_views
+from . import views
+
 urlpatterns = [
 	url(r'^dashboard/', include('dashboard.urls')),
 	url(r'^log/', include('log.urls')),
     url(r'^admin/', admin.site.urls),
-	url('^', include('django.contrib.auth.urls'))
+	url(r'^login', views.login),
+	url('^', include('django.contrib.auth.urls')),
+    url('^register', views.register, name='register')
 ]
