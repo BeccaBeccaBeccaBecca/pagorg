@@ -5,7 +5,7 @@ from .models import RewardFeed, JournalEntryList, Badge
 
 
 def index(request):
-    latest_badge_list = Badge.objects.order_by('-pub_date')[:5]
+    latest_badge_list = Badge.objects.order_by('-create_dt')[:5]
     latest_journal_list = JournalEntryList.objects.order_by('-pub_date')[:5]
     context = {
     	'latest_badge_list': latest_badge_list,
@@ -16,7 +16,7 @@ def index(request):
 
 
 def reward_detail(request, reward_id):
-	latest_badge_list = Badge.objects.order_by('-pub_date')[:5]
+	latest_badge_list = Badge.objects.order_by('-create_dt')[:5]
 	badge = Badge(name="congrats!")
 	for b in latest_badge_list:
 		if b.id == reward_id:
