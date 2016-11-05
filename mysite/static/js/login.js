@@ -28,12 +28,12 @@
   });
 
 	// Form Submission
-  $("#login-form").submit(function() {
-  	remove_loading($(this));
-    event.preventDefault();
-    console.log("form submitted!")  // sanity check
-    // create_post();
-  });
+  // $("#login-form").submit(function() {
+  // 	remove_loading($(this));
+  //   event.preventDefault();
+  //   console.log("form submitted!")  // sanity check
+  //   // create_post();
+  // });
 
 	// Register Form
 	//----------------------------------------------
