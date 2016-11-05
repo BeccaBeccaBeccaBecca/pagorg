@@ -5,18 +5,22 @@ from .models import RewardFeed, JournalEntryList, Badge
 
 
 def index(request):
-    latest_badge_list = Badge.objects.order_by('-pub_date')[:5]
-    latest_journal_list = JournalEntryList.objects.order_by('-pub_date')[:5]
-    context = {
+	badge = Badge(name="congrats!")
+	latest_badge_list = Badge.objects.order_by('-create_dt')[:5]
+	latest_journal_list = JournalEntryList.objects.order_by('-pub_date')[:5]
+	points = calculate_all_points
+	context = {
+    	'user': "me!",
+    	'points': points,
     	'latest_badge_list': latest_badge_list,
     	'latest_journal_list': latest_journal_list
     	}
 
-    return render(request, 'dashboard/index.html', context)
+	return render(request, 'dashboard/Dashboard.html', context)
 
 
 def reward_detail(request, reward_id):
-	latest_badge_list = Badge.objects.order_by('-pub_date')[:5]
+	latest_badge_list = Badge.objects.order_by('-create_dt')[:5]
 	badge = Badge(name="congrats!")
 	for b in latest_badge_list:
 		if b.id == reward_id:
@@ -40,3 +44,7 @@ def journal_detail(request, journal_id):
     	}
 
 	return render(request, 'dashboard/journal.html', context)
+
+
+def calculate_all_points():
+	return 10
