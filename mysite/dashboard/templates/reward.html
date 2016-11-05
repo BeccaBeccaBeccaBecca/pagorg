@@ -1,0 +1,7 @@
+{% if reward %}
+    <p>Entry for: {{ reward.pub_date }}</p>
+    <p>{{ reward.reward_feed_text }}</p>
+{% else %}
+    <p>Rewards Empty</p>
+{% endif %}
+<p><a href="/dashboard/">Home</a></p>

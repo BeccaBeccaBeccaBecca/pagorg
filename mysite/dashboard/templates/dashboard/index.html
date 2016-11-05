@@ -1,0 +1,20 @@
+{% if latest_reward_list %}
+    <p>Here are the rewards!</p>
+    <ul>
+    {% for reward in latest_reward_list %}
+        <li><a href="/dashboard/reward/{{ reward.id }}/">{{ reward.reward_feed_text }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No rewards :(</p>
+{% endif %}
+{% if latest_journal_list  %}
+    <p>Here are the journal entries:</p>
+    <ul>
+    {% for journal in latest_journal_list %}
+        <li><a href="/dashboard/journal/{{ journal.id }}/">{{ journal.pub_date }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No Journal entries :(</p>
+{% endif %}
