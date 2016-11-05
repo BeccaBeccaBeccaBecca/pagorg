@@ -1,0 +1,7 @@
+{% if journal_entry %}
+    <p>Entry for: {{ journal_entry.pub_date }}</p>
+    <p>{{ journal_entry.journal_entry_list_text }}</p>
+{% else %}
+    <p>Journal Entry Empty</p>
+{% endif %}
+<p><a href="/dashboard/">Home</a></p>
